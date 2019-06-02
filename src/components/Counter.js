@@ -5,19 +5,29 @@ import Value from './Value';
 import Control from './Control';
 
 class Counter extends Component {
-  constructor(props) {
-      super(props);
+  setRandomColor = () => {
+    const color = [
+      Math.floor((Math.random()*55) + 200),
+      Math.floor((Math.random()*55) + 200),
+      Math.floor((Math.random()*55) + 200)
+    ];
+    this.props.handleSetColor(color);
   }
 
   render() {
-    const { number } = this.props;
+    const { number,color } = this.props;
     const { handleIncrement, handleDecrement } = this.props;
+
+    const style = {
+      background : `rgb(${color[0]},${color[1]},${color[2]})`
+    }
     return(
-      <div>
+      <div style={style}>
         <Value number={number} />
         <Control
           onPlus={handleIncrement}
           onSubstract={handleDecrement}
+          onRandomizeColor={this.setRandomColor}
         />
       </div>
     );
