@@ -555,7 +555,7 @@ store.dispatch(action.setColor([210,210,210]));
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './components/App';
 
 /* Redux 연결 */
 // createStore(데이터 보관 장소)를 리덕스에서 가져오기
